@@ -1,0 +1,38 @@
+html {
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(25, 150, 218);
+  color: white;
+}
+
+.container {
+  text-align: center;
+  margin: auto;
+  max-width: 1000px;
+}
+
+.section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.chunk {
+  width: 30%;
+}
+
+.image {
+  margin: auto;
+  width: 50%;
+}
+
+.image-container {
+  background-color: white;
+  display: flex;
+  border-radius: 100px;
+  height: 6rem;
+  width: 6rem;
+  margin: auto;
+}
+
+p {
+  font-size: 0.9rem;
+}
