@@ -1,0 +1,63 @@
+.container {
+  margin: auto;
+  max-width: 1000px;
+}
+
+header {
+  margin: auto;
+  width: 70%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+h1,
+h3 {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Karla', sans-serif;
+  color: darkslategray;
+  font-weight: 400;
+  line-height: 200%;
+}
+
+p,
+h3 {
+  font-size: 0.75rem;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.chunk {
+  display: flex;
+  width: 45%;
+  align-items: flex-start;
+}
+
+.button {
+  width: 20%;
+  color: red;
+  background-color: white;
+  border: 1px solid red;
+  letter-spacing: 1px;
+  height: 2rem;
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
