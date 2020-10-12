@@ -19,34 +19,24 @@ var final = 95;
 var grade = (quizzes + midterm + final) / 3;
 
 console.log('Value of grade: ', grade);
-console.log('Type of grade ', typeof grade);
+console.log('Type of grade: ', typeof grade);
 
 var firstName = 'Chris';
 var lastName = 'Gitmed';
 var fullName = firstName + ' ' + lastName;
 
 console.log('Value of fullName: ', fullName);
-console.log('Type of fullName ', typeof fullName);
+console.log('Type of fullName: ', typeof fullName);
 
 var pH = 8;
-var isAcidic;
+var isAcidic = (pH < 7);
 
-if (pH < 7) {
-  isAcidic = true;
-} else {
-  isAcidic = false;
-}
 console.log('Value of isAcidic: ', isAcidic);
 console.log('Type of isAcidic: ', typeof isAcidic);
 
 var headCount = 250;
-var isSparta;
+var isSparta = (headCount === 300);
 
-if (headCount === 300) {
-  isSparta = true;
-} else {
-  isSparta = false;
-}
 console.log('Value of isSparta: ', isSparta);
 console.log('Type of isSparta: ', typeof isSparta);
 
