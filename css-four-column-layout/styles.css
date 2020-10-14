@@ -1,0 +1,31 @@
+html {
+  font-family: 'Barlow', sans-serif;
+}
+
+p {
+  font-size: 0.9rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.heading {
+  width: 100%;
+}
+
+.col-4 {
+  width: 25%;
+}
+
+.image {
+  width: 100%;
+}
+
+.icon {
+  width: 30%;
+}
