@@ -14,16 +14,12 @@ p {
   text-align: center;
 }
 
-.heading {
+.col-1 {
   width: 100%;
 }
 
 .col-4 {
   width: 25%;
-}
-
-.image {
-  width: 100%;
 }
 
 .icon {
