@@ -1,0 +1,55 @@
+html {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.container {
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.col-1 {
+  width: 100%;
+}
+
+.col-5 {
+  width: 18%;
+  padding: 0.75rem;
+}
+
+.col-5 > img {
+  height: 325px;
+}
+
+.strike-through {
+  text-decoration: line-through;
+}
+
+.gray-text {
+  color: #d5d5d5;
+}
+
+.orange-background {
+  background-color: #fff1e6;
+  padding: 0.05rem;
+  border-radius: 5px;
+}
+
+.padding-left {
+  padding-left: 0.5rem;
+}
