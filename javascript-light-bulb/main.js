@@ -1,13 +1,16 @@
 var dot = document.querySelector('div');
 var background = document.querySelector('body');
+var isOn = true;
 
 function toggleBackground(event) {
-  if (dot.className === 'background-yellow' && background.className === 'background-white') {
+  if (isOn) {
     background.className = 'background-black';
     dot.className = 'background-gray';
-  } else if (dot.className === 'background-gray' && background.className === 'background-black') {
+    isOn = false;
+  } else if (!isOn) {
     background.className = 'background-white';
     dot.className = 'background-yellow';
+    isOn = true;
   }
 }
 
