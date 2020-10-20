@@ -39,10 +39,10 @@ button:active {
   transform: translateY(0.25rem);
 }
 
-.column:first-child {
+.column:first-child > img {
   transform: rotate(-30deg);
 }
 
-.column:last-child {
+.column:last-child > img {
   transform: rotate(30deg);
 }
