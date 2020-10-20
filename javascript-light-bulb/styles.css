@@ -1,0 +1,24 @@
+div {
+  margin: auto;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
+
+.background-gray {
+  background-color: #222324;
+}
+
+.background-black {
+  background-color: #121212;
+}
+
+.background-yellow {
+  background-color: #f9ea84;
+}
+
+.background-white {
+  background-color: #fef9f1;
+}
