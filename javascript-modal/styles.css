@@ -1,0 +1,61 @@
+button {
+  margin: auto;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 5px;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-family: sans-serif;
+  margin-bottom: 2rem;
+}
+
+.container {
+  max-width: 100vw;
+  height: 100vh;
+}
+
+.hidden-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  margin: auto;
+  background-color: rgba(50, 50, 50, 0.75);
+}
+
+.modal {
+  width: 420px;
+  text-align: center;
+  margin: auto;
+  background-color: white;
+  border-radius: 5px;
+  padding: 2rem 1rem 3rem 1rem;
+  opacity: 1;
+}
+
+.row {
+  width: 100%;
+}
+
+.blue-background {
+  background-color: rgb(74, 74, 232);
+  color: white;
+}
+
+.red-background {
+  background-color: rgb(234, 93, 93);
+  color: white;
+}
+
+.drop-shadow {
+  border: 0;
+  box-shadow: 0 2px rgb(193, 193, 193);
+}
+
+.invisible {
+  display: none;
+}
