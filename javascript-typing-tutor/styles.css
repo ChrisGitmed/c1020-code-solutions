@@ -1,0 +1,23 @@
+html {
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.underlined {
+  border-bottom: 2px solid black;
+}
