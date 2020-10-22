@@ -4,6 +4,8 @@ var $viewList = document.querySelectorAll('.view');
 
 $tabContainer.addEventListener('click', function (event) {
   if (event.target.matches('.tab')) {
+    var data = event.target.getAttribute('data-view');
+
     for (var i = 0; i < $tabList.length; i++) {
       if ($tabList[i] === event.target) {
         $tabList[i].className = 'tab active';
@@ -11,14 +13,22 @@ $tabContainer.addEventListener('click', function (event) {
         $tabList[i].className = 'tab';
       }
     }
+
+    for (var x = 0; x < $viewList.length; x++) {
+      if ($viewList[x].getAttribute('data-view') !== data) {
+        $viewList[x].className = 'hidden';
+      } else {
+        $viewList[x].className = 'view-container view';
+      }
+    }
   }
 
-  var data = event.target.getAttribute('data-view');
+  /* var data = event.target.getAttribute('data-view');
   for (var x = 0; x < $viewList.length; x++) {
     if ($viewList[x].getAttribute('data-view') !== data) {
       $viewList[x].className = 'hidden';
     } else {
       $viewList[x].className = 'view-container view';
     }
-  }
+  } */
 });
