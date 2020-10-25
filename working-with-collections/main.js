@@ -302,7 +302,6 @@ for (i = 0; i < players.length; i++) {
     combinedScore += players[i].hand[x].value;
   }
   players[i].score = combinedScore;
-  console.log(players[i].score);
 }
 
 // Check for winner.
