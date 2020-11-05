@@ -2,6 +2,7 @@ var $leftNav = document.querySelector('.left-nav');
 var $rightNav = document.querySelector('.right-nav');
 var $image = document.querySelector('img');
 var $dotList = document.querySelectorAll('#progress-bar > i');
+var $progressBar = document.querySelector('#progress-bar');
 
 var imageIntervalID = setInterval(toggleCarouselForward, 3000);
 var imageCounter = 0;
@@ -18,8 +19,10 @@ function toggleCarouselForward() {
 function toggleCarouselBackward() {
   if (imageCounter > 0) {
     imageCounter--;
-    changeImage();
+  } else if (imageCounter === 0) {
+    imageCounter = 4;
   }
+  changeImage();
 }
 
 function changeImage() {
@@ -60,61 +63,25 @@ function toggleShading() {
   }
 }
 
-$leftNav.addEventListener('click', function (event) {
-  toggleCarouselBackward();
+function resetInterval() {
   clearInterval(imageIntervalID);
   imageIntervalID = setInterval(toggleCarouselForward, 3000);
+}
+
+$leftNav.addEventListener('click', function (event) {
+  toggleCarouselBackward();
+  resetInterval();
 });
 
 $rightNav.addEventListener('click', function (event) {
-  if (imageCounter < 4) {
-    toggleCarouselForward();
+  toggleCarouselForward();
+  resetInterval();
+});
+
+$progressBar.addEventListener('click', function (event) {
+  if (event.target.tagName === 'I') {
+    imageCounter = Number(event.target.dataset.id);
+    changeImage();
+    resetInterval();
   }
-  clearInterval(imageIntervalID);
-  imageIntervalID = setInterval(toggleCarouselForward, 3000);
-});
-
-$dotList[0].addEventListener('click', function (event) {
-  $image.src = 'images/001.png';
-  $image.alt = 'Bulbasaur';
-  imageCounter = 0;
-  toggleShading();
-  clearInterval(imageIntervalID);
-  imageIntervalID = setInterval(toggleCarouselForward, 3000);
-});
-
-$dotList[1].addEventListener('click', function (event) {
-  $image.src = 'images/004.png';
-  $image.alt = 'Charmander';
-  imageCounter = 1;
-  toggleShading();
-  clearInterval(imageIntervalID);
-  imageIntervalID = setInterval(toggleCarouselForward, 3000);
-});
-
-$dotList[2].addEventListener('click', function (event) {
-  $image.src = 'images/007.png';
-  $image.alt = 'Squirtle';
-  imageCounter = 2;
-  toggleShading();
-  clearInterval(imageIntervalID);
-  imageIntervalID = setInterval(toggleCarouselForward, 3000);
-});
-
-$dotList[3].addEventListener('click', function (event) {
-  $image.src = 'images/025.png';
-  $image.alt = 'Pikachu';
-  imageCounter = 3;
-  toggleShading();
-  clearInterval(imageIntervalID);
-  imageIntervalID = setInterval(toggleCarouselForward, 3000);
-});
-
-$dotList[4].addEventListener('click', function (event) {
-  $image.src = 'images/039.png';
-  $image.alt = 'Jigglypuff';
-  imageCounter = 4;
-  toggleShading();
-  clearInterval(imageIntervalID);
-  imageIntervalID = setInterval(toggleCarouselForward, 3000);
 });
