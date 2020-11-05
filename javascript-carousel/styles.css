@@ -1,0 +1,67 @@
+h1 {
+  font-family: 'Trispace', sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+i {
+  font-size: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.carousel {
+  border: 3px solid black;
+  border-radius: 5px;
+  display: flex;
+  margin: auto;
+  width: 90%;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.shaded {
+  border-radius: 50%;
+  background-color: black;
+}
+
+.right-nav {
+  text-align: end;
+}
+
+.left-nav:hover,
+.right-nav:hover,
+#progress-bar > i:hover {
+  color: cornflowerblue;
+}
+
+.filled {
+  background-color: black;
+  border-radius: 50%;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.col-3 {
+  width: calc(100% / 3);
+}
