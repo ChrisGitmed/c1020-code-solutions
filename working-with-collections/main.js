@@ -284,14 +284,15 @@ var cards = [
   }
 ];
 
-// Shuffle cards.
 var shuffledCards = _.shuffle(cards);
+var cardCounter = 0;
 
-// Deal two cards to each player.
+// Deal cards
 for (var i = 0; i < players.length; i++) {
-  players[i].hand.push(shuffledCards[i]);
-  players[i].hand.push(shuffledCards[i + 1]);
-  console.log(players[i]);
+  players[i].hand.push(shuffledCards[cardCounter]);
+  players[i].hand.push(shuffledCards[cardCounter + 1]);
+  cardCounter += 2;
+  console.log('Player ' + [i + 1], players[i]);
 }
 
 // Calculate scores
@@ -313,4 +314,4 @@ for (i = 0; i < players.length; i++) {
     playerWithHighestScore = players[i];
   }
 }
-console.log('Player with highest score was: ', playerWithHighestScore.name);
+console.log('Player with highest score was ' + playerWithHighestScore.name + ' with ' + playerWithHighestScore.score + ' points!');
