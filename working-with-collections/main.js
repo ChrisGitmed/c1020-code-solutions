@@ -21,294 +21,99 @@ var players = [
   }
 ];
 
-var cards = [
+var cardData = [
   {
     rank: 'ace',
-    suit: 'clubs',
     value: 11
   },
   {
-    rank: '2',
-    suit: 'clubs',
+    rank: 'two',
     value: 2
   },
   {
-    rank: '3',
-    suit: 'clubs',
+    rank: 'three',
     value: 3
   },
   {
-    rank: '4',
-    suit: 'clubs',
+    rank: 'four',
     value: 4
   },
   {
-    rank: '5',
-    suit: 'clubs',
+    rank: 'five',
     value: 5
   },
   {
-    rank: '6',
-    suit: 'clubs',
+    rank: 'six',
     value: 6
   },
   {
-    rank: '7',
-    suit: 'clubs',
+    rank: 'seven',
     value: 7
   },
   {
-    rank: '8',
-    suit: 'clubs',
+    rank: 'eight',
     value: 8
   },
   {
-    rank: '9',
-    suit: 'clubs',
+    rank: 'nine',
     value: 9
   },
   {
-    rank: '10',
-    suit: 'clubs',
+    rank: 'ten',
     value: 10
   },
   {
     rank: 'jack',
-    suit: 'clubs',
     value: 10
   },
   {
     rank: 'queen',
-    suit: 'clubs',
     value: 10
   },
   {
     rank: 'king',
-    suit: 'clubs',
-    value: 10
-  },
-  {
-    rank: 'ace',
-    suit: 'diamonds',
-    value: 11
-  },
-  {
-    rank: '2',
-    suit: 'diamonds',
-    value: 2
-  },
-  {
-    rank: '3',
-    suit: 'diamonds',
-    value: 3
-  },
-  {
-    rank: '4',
-    suit: 'diamonds',
-    value: 4
-  },
-  {
-    rank: '5',
-    suit: 'diamonds',
-    value: 5
-  },
-  {
-    rank: '6',
-    suit: 'diamonds',
-    value: 6
-  },
-  {
-    rank: '7',
-    suit: 'diamonds',
-    value: 7
-  },
-  {
-    rank: '8',
-    suit: 'diamonds',
-    value: 8
-  },
-  {
-    rank: '9',
-    suit: 'diamonds',
-    value: 9
-  },
-  {
-    rank: '10',
-    suit: 'diamonds',
-    value: 10
-  },
-  {
-    rank: 'jack',
-    suit: 'diamonds',
-    value: 10
-  },
-  {
-    rank: 'queen',
-    suit: 'diamonds',
-    value: 10
-  },
-  {
-    rank: 'king',
-    suit: 'diamonds',
-    value: 10
-  },
-  {
-    rank: 'ace',
-    suit: 'hearts',
-    value: 11
-  },
-  {
-    rank: '2',
-    suit: 'hearts',
-    value: 2
-  },
-  {
-    rank: '3',
-    suit: 'hearts',
-    value: 3
-  },
-  {
-    rank: '4',
-    suit: 'hearts',
-    value: 4
-  },
-  {
-    rank: '5',
-    suit: 'hearts',
-    value: 5
-  },
-  {
-    rank: '6',
-    suit: 'hearts',
-    value: 6
-  },
-  {
-    rank: '7',
-    suit: 'hearts',
-    value: 7
-  },
-  {
-    rank: '8',
-    suit: 'hearts',
-    value: 8
-  },
-  {
-    rank: '9',
-    suit: 'hearts',
-    value: 9
-  },
-  {
-    rank: '10',
-    suit: 'hearts',
-    value: 10
-  },
-  {
-    rank: 'jack',
-    suit: 'hearts',
-    value: 10
-  },
-  {
-    rank: 'queen',
-    suit: 'hearts',
-    value: 10
-  },
-  {
-    rank: 'king',
-    suit: 'hearts',
-    value: 10
-  },
-  {
-    rank: 'ace',
-    suit: 'spades',
-    value: 11
-  },
-  {
-    rank: '2',
-    suit: 'spades',
-    value: 2
-  },
-  {
-    rank: '3',
-    suit: 'spades',
-    value: 3
-  },
-  {
-    rank: '4',
-    suit: 'spades',
-    value: 4
-  },
-  {
-    rank: '5',
-    suit: 'spades',
-    value: 5
-  },
-  {
-    rank: '6',
-    suit: 'spades',
-    value: 6
-  },
-  {
-    rank: '7',
-    suit: 'spades',
-    value: 7
-  },
-  {
-    rank: '8',
-    suit: 'spades',
-    value: 8
-  },
-  {
-    rank: '9',
-    suit: 'spades',
-    value: 9
-  },
-  {
-    rank: '10',
-    suit: 'spades',
-    value: 10
-  },
-  {
-    rank: 'jack',
-    suit: 'spades',
-    value: 10
-  },
-  {
-    rank: 'queen',
-    suit: 'spades',
-    value: 10
-  },
-  {
-    rank: 'king',
-    suit: 'spades',
     value: 10
   }
 ];
 
-var shuffledCards = _.shuffle(cards);
-var cardCounter = 0;
+var suits = [
+  'hearts',
+  'clubs',
+  'spades',
+  'diamonds'
+];
 
-// Deal cards
-for (var i = 0; i < players.length; i++) {
-  players[i].hand.push(shuffledCards[cardCounter]);
-  players[i].hand.push(shuffledCards[cardCounter + 1]);
-  cardCounter += 2;
-  console.log('Player ' + [i + 1], players[i]);
+var deck = [];
+for (var i = 0; i < cardData.length; i++) {
+  for (var x = 0; x < suits.length; x++) {
+    var newCard = {};
+    newCard.rank = cardData[i].rank;
+    newCard.value = cardData[i].value;
+    newCard.suit = suits[x];
+    deck.push(newCard);
+  }
 }
 
-// Calculate scores
+var shuffledCards = _.shuffle(deck);
+
+var cardCounter = 0;
+for (i = 0; i < 2; i++) {
+  for (x = 0; x < players.length; x++) {
+    players[x].hand.push(shuffledCards[cardCounter]);
+    cardCounter++;
+    if (i === 1) { console.log('Player ' + [x + 1], players[x]); }
+  }
+}
+
 for (i = 0; i < players.length; i++) {
   var combinedScore = 0;
-
-  for (var x = 0; x < players[i].hand.length; x++) {
+  for (x = 0; x < players[i].hand.length; x++) {
     combinedScore += players[i].hand[x].value;
   }
   players[i].score = combinedScore;
 }
 
-// Check for winner.
-var playerWithHighestScore = {
-  score: 0
-};
+var playerWithHighestScore = { score: 0 };
 for (i = 0; i < players.length; i++) {
   if (players[i].score > playerWithHighestScore.score) {
     playerWithHighestScore = players[i];
