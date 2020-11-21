@@ -33,9 +33,9 @@ var data = {
 var imageIntervalID = setInterval(toggleCarouselForward, 3000);
 
 function toggleCarouselForward() {
-  if (data.imageCounter < 4) {
+  if (data.imageCounter < data.images.length - 1) {
     data.imageCounter++;
-  } else if (data.imageCounter === 4) {
+  } else if (data.imageCounter === data.images.length - 1) {
     data.imageCounter = 0;
   }
   changeImage();
@@ -45,7 +45,7 @@ function toggleCarouselBackward() {
   if (data.imageCounter > 0) {
     data.imageCounter--;
   } else if (data.imageCounter === 0) {
-    data.imageCounter = 4;
+    data.imageCounter = data.images.length - 1;
   }
   changeImage();
 }
@@ -55,19 +55,12 @@ function changeImage() {
     if (data.imageCounter === i) {
       $image.src = data.images[i].src;
       $image.alt = data.images[i].alt;
-      toggleShading();
-    }
-  }
-}
-
-function toggleShading() {
-  for (var i = 0; i < $dotList.length; i++) {
-    if (i === data.imageCounter) {
       $dotList[i].className = 'far fa-circle shaded';
     } else {
       $dotList[i].className = 'far fa-circle';
     }
   }
+  resetInterval();
 }
 
 function resetInterval() {
@@ -77,18 +70,15 @@ function resetInterval() {
 
 $leftNav.addEventListener('click', function (event) {
   toggleCarouselBackward();
-  resetInterval();
 });
 
 $rightNav.addEventListener('click', function (event) {
   toggleCarouselForward();
-  resetInterval();
 });
 
 $progressBar.addEventListener('click', function (event) {
   if (event.target.tagName === 'I') {
     data.imageCounter = Number(event.target.dataset.id);
     changeImage();
-    resetInterval();
   }
 });
