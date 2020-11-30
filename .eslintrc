@@ -24,7 +24,7 @@
       "error",
       "multi-line"
     ],
-    /*"no-console": [
+    "no-console": [
       "error",
       {
         "allow": [
@@ -32,7 +32,7 @@
           "error"
         ]
       }
-    ],*/
+    ],
     "space-before-function-paren": [
       "error",
       {
