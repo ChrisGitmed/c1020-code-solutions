@@ -8,10 +8,6 @@
     "2": {
       "id": 2,
       "content": "Prototypal inheritance is how JavaScript objects delegate behavior."
-    },
-    "4": {
-      "id": 4,
-      "content": "I wish I didn't replace the content of this one."
     }
   }
 }

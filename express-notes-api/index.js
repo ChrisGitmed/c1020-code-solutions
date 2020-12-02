@@ -21,14 +21,11 @@ app.get('/api/notes/:id', (req, res) => {
   if (noteId < 1) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else {
-    let isFound = false;
-    for (const note in data.notes) {
-      if (data.notes[note].id === noteId) {
-        isFound = true;
-        res.status(200).json(data.notes[note]);
-      }
+    if (data.notes[noteId]) {
+      res.status(200).json(data.notes[noteId]);
+    } else {
+      res.status(404).json({ error: `cannot find note with id ${noteId}` });
     }
-    if (!isFound) res.status(404).json({ error: `cannot find note with id ${noteId}` });
   }
 });
 
@@ -56,21 +53,18 @@ app.delete('/api/notes/:id', (req, res) => {
   if (noteId < 1) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else {
-    let isFound = false;
-    for (const note in data.notes) {
-      if (data.notes[note].id === noteId) {
-        isFound = true;
-        delete data.notes[note];
-        fs.writeFile('./data.json', JSON.stringify(data, null, 2), 'utf8', err => {
-          if (err) {
-            res.status(500).json({ error: 'An unexpected error occured' });
-          } else {
-            res.status(204).json({});
-          }
-        });
-      }
+    if (data.notes[noteId]) {
+      delete data.notes[noteId];
+      fs.writeFile('./data.json', JSON.stringify(data, null, 2), 'utf8', err => {
+        if (err) {
+          res.status(500).json({ error: 'An unexpected error occured' });
+        } else {
+          res.status(204).json({});
+        }
+      });
+    } else {
+      res.status(404).json({ error: 'cannot find note with id' });
     }
-    if (!isFound) res.status(404).json({ error: `cannot find note with id ${noteId}` });
   }
 });
 
