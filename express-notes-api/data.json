@@ -1,5 +1,5 @@
 {
-  "nextId": 5,
+  "nextId": 6,
   "notes": {
     "1": {
       "id": 1,
@@ -8,6 +8,10 @@
     "2": {
       "id": 2,
       "content": "Prototypal inheritance is how JavaScript objects delegate behavior."
+    },
+    "5": {
+      "id": 5,
+      "content": "I wish I didn't replace the content of this one."
     }
   }
 }
