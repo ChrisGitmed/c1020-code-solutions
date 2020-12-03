@@ -1,5 +1,5 @@
-const express = require('./node_modules/express');
-const data = require('./data.json');
+const express = require('express');
+const data = require('data.json');
 const fs = require('fs');
 
 const app = express();
@@ -30,12 +30,13 @@ app.get('/api/notes/:id', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-  if (req.body.content === undefined) {
+  if (!req.body.content) {
     res.status(400).json({ error: 'content is a required field' });
   } else {
-    const newNote = {};
-    newNote.id = data.nextId;
-    newNote.content = req.body.content;
+    const newNote = {
+      id: data.nextId,
+      content: req.body.content
+    };
     data.notes[data.nextId] = newNote;
     data.nextId++;
     fs.writeFile('./data.json', JSON.stringify(data, null, 2), 'utf8', err => {
