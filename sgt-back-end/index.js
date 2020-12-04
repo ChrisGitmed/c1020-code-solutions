@@ -29,15 +29,32 @@ app.get('/api/grades', (request, response) => {
 });
 
 app.post('/api/grades', (request, response) => {
-  console.log('request.body:', request.body);
-  if (!request.body) {
+  const reqBody = request.body;
+  if (!reqBody) {
     response.status(400).json({ error: 'Enter fields (name, course, score)' });
-  } else if (!request.body.name ||
-    !request.body.course ||
-    !request.body.score ||
-    request.body.score < 1 ||
-    request.body.score > 100) {
+  } else if (!reqBody.name ||
+    !reqBody.course ||
+    !reqBody.score ||
+    reqBody.score < 1 ||
+    reqBody.score > 100) {
     response.status(400).json({ error: 'Enter all fields and a valid grade.' });
+  } else {
+    const name = reqBody.name;
+    const course = reqBody.course;
+    const score = reqBody.score;
+    const sql = `
+      insert into "grades" ("name","course","score")
+           values ('${name}','${course}','${score}')
+        returning *;
+    `;
+    db.query(sql)
+      .then(result => {
+        response.status(201).json(result.rows[0]);
+      })
+      .catch(err => {
+        console.error(err);
+        response.status(500).json({ error: 'An unexpected error occurred' });
+      });
   }
 });
 
