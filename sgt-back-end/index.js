@@ -60,7 +60,6 @@ app.post('/api/grades', (request, response) => {
 });
 
 app.put('/api/grades/:gradeId', (req, response) => {
-  console.log(db);
   const { gradeId } = req.params;
   const {
     name,
@@ -91,7 +90,7 @@ app.put('/api/grades/:gradeId', (req, response) => {
         const grade = result.rows[0];
         if (!grade) {
           response.status(404).json({
-            error: `Cannot find grade with 'gradeId' ${gradeId}`
+            error: `Cannot find grade with gradeId ${gradeId}`
           });
         } else {
           response.status(200).json(result.rows[0]);
@@ -99,7 +98,37 @@ app.put('/api/grades/:gradeId', (req, response) => {
       })
       .catch(err => {
         console.error(err);
-        response.status(500).json({ error: 'An unexpected error occurred' });
+        response.status(500).json({
+          error: 'An unexpected error occurred'
+        });
+      });
+  }
+});
+
+app.delete('/api/grades/:gradeId', (req, res) => {
+  const { gradeId } = req.params;
+  if (!gradeId || gradeId < 0) {
+    res.status(400).json({ error: 'Invalid gradeId entered' });
+  } else {
+    const sql = `
+      delete from "grades"
+            where "gradeId" = '${gradeId}'
+        returning *
+    ;`;
+    db.query(sql)
+      .then(result => {
+        const grade = result.rows[0];
+        if (!grade) {
+          res.status(404).json({
+            error: `Cannot find grade with gradeId ${gradeId}`
+          });
+        } else {
+          res.status(200).json({});
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: 'An unexpected error occurred' });
       });
   }
 });
