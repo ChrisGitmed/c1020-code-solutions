@@ -16,6 +16,7 @@ app.get('/api/grades', (request, response) => {
   const sql = `
     select *
       from "grades"
+  order by "gradeId"
   ;`;
 
   db.query(sql)
@@ -50,6 +51,51 @@ app.post('/api/grades', (request, response) => {
     db.query(sql)
       .then(result => {
         response.status(201).json(result.rows[0]);
+      })
+      .catch(err => {
+        console.error(err);
+        response.status(500).json({ error: 'An unexpected error occurred' });
+      });
+  }
+});
+
+app.put('/api/grades/:gradeId', (req, response) => {
+  console.log(db);
+  const { gradeId } = req.params;
+  const {
+    name,
+    course,
+    score
+  } = req.body;
+
+  if (
+    !gradeId ||
+    gradeId < 1 ||
+    !name ||
+    !course ||
+    !score ||
+    score < 1 ||
+    score > 100) {
+    response.status(400).json({ error: 'Enter all fields, a valid score, and a valid gradeId.' });
+  } else {
+    const sql = `
+      update "grades"
+         set "name" = '${name}',
+             "course" = '${course}',
+             "score" = '${score}'
+       where "gradeId" = '${gradeId}'
+       returning*;
+    `;
+    db.query(sql)
+      .then(result => {
+        const grade = result.rows[0];
+        if (!grade) {
+          response.status(404).json({
+            error: `Cannot find grade with 'gradeId' ${gradeId}`
+          });
+        } else {
+          response.status(200).json(result.rows[0]);
+        }
       })
       .catch(err => {
         console.error(err);
