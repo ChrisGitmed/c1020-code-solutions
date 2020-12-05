@@ -113,7 +113,9 @@ app.put('/api/grades/:gradeId', (req, res) => {
 app.delete('/api/grades/:gradeId', (req, res) => {
   const { gradeId } = req.params;
   if (!gradeId || gradeId < 0) {
-    res.status(400).json({ error: 'Invalid gradeId entered' });
+    res.status(400).json({
+      error: 'Invalid gradeId entered'
+    });
   } else {
     const sql = `
       delete from "grades"
@@ -133,7 +135,9 @@ app.delete('/api/grades/:gradeId', (req, res) => {
       })
       .catch(err => {
         console.error(err);
-        res.status(500).json({ error: 'An unexpected error occurred' });
+        res.status(500).json({
+          error: 'An unexpected error occurred'
+        });
       });
   }
 });
