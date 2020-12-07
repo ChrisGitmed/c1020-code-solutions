@@ -44,12 +44,13 @@ app.post('/api/grades', (req, res) => {
   } else {
     const sql = `
       insert into "grades" ("name","course","score")
-           values ('${reqBody.name}',
-                   '${reqBody.course}',
-                   '${reqBody.score}')
+           values ($1,
+                   $2,
+                   $3)
         returning *;
     `;
-    db.query(sql)
+    const values = [req.body.name, req.body.course, req.body.score];
+    db.query(sql, values)
       .then(result => {
         res.status(201).json(result.rows[0]);
       })
@@ -84,13 +85,14 @@ app.put('/api/grades/:gradeId', (req, res) => {
   } else {
     const sql = `
       update "grades"
-         set "name" = '${name}',
-             "course" = '${course}',
-             "score" = '${score}'
-       where "gradeId" = '${gradeId}'
+         set "name" = $1,
+             "course" = $2,
+             "score" = $3
+       where "gradeId" = $4
        returning*;
     `;
-    db.query(sql)
+    const values = [name, course, score, gradeId];
+    db.query(sql, values)
       .then(result => {
         const grade = result.rows[0];
         if (!grade) {
@@ -119,10 +121,11 @@ app.delete('/api/grades/:gradeId', (req, res) => {
   } else {
     const sql = `
       delete from "grades"
-            where "gradeId" = '${gradeId}'
+            where "gradeId" = $1
         returning *
     ;`;
-    db.query(sql)
+    const values = [gradeId];
+    db.query(sql, values)
       .then(result => {
         const grade = result.rows[0];
         if (!grade) {
