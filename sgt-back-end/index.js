@@ -32,12 +32,17 @@ app.get('/api/grades', (request, response) => {
 });
 
 app.post('/api/grades', (req, res) => {
-  const reqBody = req.body;
-  if (!reqBody.name ||
-    !reqBody.course ||
-    !reqBody.score ||
-    reqBody.score < 1 ||
-    reqBody.score > 100) {
+  const {
+    name,
+    course,
+    score
+  } = req.body;
+
+  if (!name ||
+    !course ||
+    !score ||
+    score < 1 ||
+    score > 100) {
     res.status(400).json({
       error: 'Enter all fields and a valid grade.'
     });
@@ -49,7 +54,7 @@ app.post('/api/grades', (req, res) => {
                    $3)
         returning *;
     `;
-    const values = [req.body.name, req.body.course, req.body.score];
+    const values = [name, course, score];
     db.query(sql, values)
       .then(result => {
         res.status(201).json(result.rows[0]);
