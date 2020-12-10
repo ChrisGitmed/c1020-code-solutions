@@ -13,8 +13,7 @@ class HotButton extends React.Component {
 
   render() {
     const clicks = this.state.clickCounter;
-    let className;
-    let children;
+    let className, children;
 
     if (clicks < 3) {
       className = 'ice-button';
