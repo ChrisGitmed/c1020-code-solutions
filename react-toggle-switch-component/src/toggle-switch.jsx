@@ -1,9 +1,12 @@
 import React from 'react';
 
 class ToggleSwitch extends React.Component {
-
   render() {
-    return <p>placeholder text</p>;
+    return (
+      <div className="border toggle-off">
+        <div className="circle"></div>
+      </div>
+    );
   }
 }
 
