@@ -1,4 +1,4 @@
-#root {
+div {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -6,8 +6,27 @@
 }
 
 button {
-  background-color: lightcyan;
   width: 8rem;
   height: 2rem;
   border-radius: 5px;
+}
+
+.ice-button {
+  background-color: lightcyan;
+}
+
+.cold-button {
+  background-color: lightskyblue;
+}
+
+.warm-button {
+  background-color: orange;
+}
+
+.hot-button {
+  background-color: orangered;
+}
+
+.nuclear-button {
+  background-color: yellow;
 }
