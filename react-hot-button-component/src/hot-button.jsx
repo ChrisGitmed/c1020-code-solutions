@@ -14,7 +14,18 @@ class HotButton extends React.Component {
   }
 
   render() {
-    return <button onClick={this.handleClick}>Hot Button</button>;
+    const clicks = this.state.clickCounter;
+    if (clicks < 3) {
+      return <button onClick={this.handleClick}>Ice Button</button>;
+    } else if (clicks < 6) {
+      return <button onClick={this.handleClick}>Cold Button</button>;
+    } else if (clicks < 9) {
+      return <button onClick={this.handleClick}>Warm Button</button>;
+    } else if (clicks < 12) {
+      return <button onClick={this.handleClick}>Hot Button</button>;
+    } else {
+      return <button onClick={this.handleClick}>Nuclear Button</button>;
+    }
   }
 }
 
