@@ -1,5 +1,4 @@
 import React from 'react';
-// let counter = 0;
 
 class HotButton extends React.Component {
   constructor(props) {
@@ -9,8 +8,6 @@ class HotButton extends React.Component {
   }
 
   handleClick() {
-    // counter++;
-    // const count = this.state.clickCounter + 1;
     this.setState({ clickCounter: this.state.clickCounter + 1 });
   }
 
