@@ -7,7 +7,7 @@ class HotButton extends React.Component {
   }
 
   render() {
-    return <button>Hello!</button>;
+    return <button>Hot Button</button>;
   }
 }
 

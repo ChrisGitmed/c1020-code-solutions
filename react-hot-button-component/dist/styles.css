@@ -1,0 +1,13 @@
+#root {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: lightcyan;
+  width: 8rem;
+  height: 2rem;
+  border-radius: 5px;
+}
