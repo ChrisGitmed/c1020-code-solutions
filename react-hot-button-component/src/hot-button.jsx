@@ -13,17 +13,24 @@ class HotButton extends React.Component {
 
   render() {
     const clicks = this.state.clickCounter;
+
     if (clicks < 3) {
-      return <button className="ice-button" onClick={this.handleClick}>Ice Button</button>;
+      this.props.className = 'ice-button';
+      this.props.children = 'Ice Button';
     } else if (clicks < 6) {
-      return <button className="cold-button" onClick={this.handleClick}>Cold Button</button>;
+      this.props.className = 'cold-button';
+      this.props.children = 'Cold Button';
     } else if (clicks < 9) {
-      return <button className="warm-button" onClick={this.handleClick}>Warm Button</button>;
+      this.props.className = 'warm-button';
+      this.props.children = 'Warm Button';
     } else if (clicks < 12) {
-      return <button className="hot-button" onClick={this.handleClick}>Hot Button</button>;
+      this.props.className = 'hot-button';
+      this.props.children = 'Hot Button';
     } else {
-      return <button className="nuclear-button" onClick={this.handleClick}>Nuclear Button</button>;
+      this.props.className = 'nuclear-button';
+      this.props.children = 'Nuclear Button';
     }
+    return <button className={this.props.className} onClick={this.handleClick}>{this.props.children}</button>;
   }
 }
 
