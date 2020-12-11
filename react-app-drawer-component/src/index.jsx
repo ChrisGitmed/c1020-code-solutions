@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AppDrawer from './app-drawer';
 
 ReactDOM.render(
-  <h1>placeholder</h1>,
+  <AppDrawer/>,
   document.querySelector('#root')
 );
