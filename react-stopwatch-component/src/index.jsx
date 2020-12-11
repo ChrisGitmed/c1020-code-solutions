@@ -6,21 +6,23 @@ class Stopwatch extends React.Component {
     super(props);
     this.state = {
       currentTime: 0,
-      isActive: false
+      isActive: false,
+      intervalID: 0
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    let intervalID;
     if (!this.state.isActive) {
+      this.setState({
+        intervalID: setInterval(() => {
+          this.setState({ currentTime: this.state.currentTime + 1 });
+        }, 1000)
+      });
       this.setState({ isActive: true });
-      intervalID = setInterval(() => {
-        this.setState({ currentTime: this.state.currentTime + 1 });
-      }, 1000);
     } else {
+      clearInterval(this.state.intervalID);
       this.setState({ isActive: false });
-      clearInterval(intervalID);
     }
   }
 
