@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+class Stopwatch extends React.Component {
+
+  render() {
+    return <p>placeholder</p>;
+  }
+}
 ReactDOM.render(
-  <p>placeholder</p>,
+  <Stopwatch/>,
   document.querySelector('#root')
 );
