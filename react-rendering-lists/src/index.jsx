@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'reactDOM';
+import ReactDOM from 'react-dom';
 
 const pokedex = [
   { number: '001', name: 'Bulbasaur' },
@@ -9,7 +9,22 @@ const pokedex = [
   { number: '039', name: 'Jigglypuff' }
 ];
 
+class Pokedex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.listItems = pokedex.map(pokemon =>
+      <li key={pokemon.number}>
+        {pokemon.name}
+      </li>
+    );
+  }
+
+  render() {
+    return <ul>{this.listItems}</ul>;
+  }
+}
+
 ReactDOM.render(
-  <h1>{pokedex[0].number}</h1>,
+  <Pokedex/>,
   document.querySelector('#root')
 );
