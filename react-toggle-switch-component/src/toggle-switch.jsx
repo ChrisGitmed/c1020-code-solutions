@@ -16,19 +16,15 @@ class ToggleSwitch extends React.Component {
   }
 
   render() {
+    let toggle = 'toggle-off';
     if (this.state.isOn) {
-      return (
-        <div className="border toggle-on">
-          <div className="circle" onClick={this.handleClick}></div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="border toggle-off">
-          <div className="circle" onClick={this.handleClick}></div>
-        </div>
-      );
+      toggle = 'toggle-on';
     }
+    return (
+      <div className={`border ${toggle}`}>
+        <div className="circle" onClick={this.handleClick}></div>
+      </div>
+    );
   }
 }
 
