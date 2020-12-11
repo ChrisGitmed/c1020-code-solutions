@@ -1,13 +1,16 @@
+i {
+  margin: 1rem;
+}
+
+i:hover {
+  color: green;
+}
+
 #root {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
-
-.row {
-  display: flex;
-  width: 100%;
 }
 
 .clock {

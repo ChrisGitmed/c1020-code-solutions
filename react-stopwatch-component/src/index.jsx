@@ -6,11 +6,11 @@ class Stopwatch extends React.Component {
   render() {
     return (
       <div className="clock">
-        <div className="row circle">
+        <div className="circle">
           <h1>0</h1>
         </div>
         <div>
-          <p>symbol</p>
+          <i className="fa fa-play" aria-hidden="true"></i>
         </div>
       </div>
     );
