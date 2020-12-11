@@ -6,8 +6,9 @@ class NewsletterForm extends React.Component {
   render() {
     return (
       <form>
-        <input></input>
-        <button></button>
+        <label htmlFor="name">Enter your email: </label>
+        <input type="email" name="name"></input>
+        <button>Submit</button>
       </form>
     );
   }
