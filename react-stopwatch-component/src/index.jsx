@@ -10,6 +10,7 @@ class Stopwatch extends React.Component {
       intervalID: 0
     };
     this.handleClick = this.handleClick.bind(this);
+    this.resetClock = this.resetClock.bind(this);
   }
 
   handleClick() {
@@ -26,6 +27,12 @@ class Stopwatch extends React.Component {
     }
   }
 
+  resetClock() {
+    if (!this.state.isActive) {
+      this.setState({ currentTime: 0 });
+    }
+  }
+
   render() {
     let symbol = 'fa fa-play';
     if (this.state.isActive) {
@@ -33,7 +40,7 @@ class Stopwatch extends React.Component {
     }
     return (
       <div className="clock">
-        <div className="circle">
+        <div className="circle" onClick={this.resetClock}>
           <h1>{this.state.currentTime}</h1>
         </div>
         <div>
