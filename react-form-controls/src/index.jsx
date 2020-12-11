@@ -2,12 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class NewsletterForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { email: '' };
+  }
+
+  handleChange() {
+
+  }
+
+  handleSubmit() {
+
+  }
 
   render() {
     return (
       <form>
-        <label htmlFor="name">Enter your email: </label>
-        <input type="email" name="name"></input>
+        <label>
+          Email:
+          <input type="email" name="name"></input>
+        </label>
         <button>Submit</button>
       </form>
     );
