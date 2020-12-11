@@ -10,6 +10,6 @@ const pokedex = [
 ];
 
 ReactDOM.render(
-  <h1>{pokedex}</h1>,
+  <h1>{pokedex[0].number}</h1>,
   document.querySelector('#root')
 );
