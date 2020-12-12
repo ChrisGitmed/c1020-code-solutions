@@ -8,8 +8,7 @@ class AppDrawer extends React.Component {
   }
 
   handleClick() {
-    const isActive = this.state.isActive;
-    if (isActive) {
+    if (this.state.isActive) {
       this.setState({ isActive: false });
     } else {
       this.setState({ isActive: true });
@@ -17,11 +16,19 @@ class AppDrawer extends React.Component {
   }
 
   render() {
-    return (
-      <svg className="lnr lnr-menu" onClick={this.handleClick}>
-        <use xlinkHref="#lnr-menu"></use>
-      </svg>
-    );
+    if (this.state.isActive) {
+      return (
+        <svg className="lnr lnr-menu" onClick={this.handleClick}>
+          <use xlinkHref="#lnr-menu"></use>
+        </svg>
+      );
+    } else {
+      return (
+        <svg className="lnr lnr-menu" onClick={this.handleClick}>
+          <use xlinkHref="#lnr-menu"></use>
+        </svg>
+      );
+    }
   }
 }
 
