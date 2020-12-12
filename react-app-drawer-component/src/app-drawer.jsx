@@ -18,9 +18,12 @@ class AppDrawer extends React.Component {
   render() {
     if (this.state.isActive) {
       return (
-        <svg className="lnr lnr-menu" onClick={this.handleClick}>
-          <use xlinkHref="#lnr-menu"></use>
-        </svg>
+        <div className="column">
+          <h1>Menu</h1>
+          <h4>About</h4>
+          <h4>Get Started</h4>
+          <h4>Sign In</h4>
+        </div>
       );
     } else {
       return (

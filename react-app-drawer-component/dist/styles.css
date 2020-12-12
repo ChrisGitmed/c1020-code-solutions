@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #555;
+}
+
 #root {
   display: flex;
   height: 100vh;
@@ -17,9 +23,12 @@
   padding: 0.5rem 0.8rem;
 }
 
-body {
-  margin: 0;
-  font-size: 40px;
-  font-family: sans-serif;
-  color: #555;
+.column {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 2rem 0 0 2rem;
+  border-right: 2px solid black;
 }
