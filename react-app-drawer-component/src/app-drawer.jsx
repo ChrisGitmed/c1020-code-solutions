@@ -8,7 +8,12 @@ class AppDrawer extends React.Component {
   }
 
   handleClick() {
-
+    const isActive = this.state.isActive;
+    if (isActive) {
+      this.setState({ isActive: false });
+    } else {
+      this.setState({ isActive: true });
+    }
   }
 
   render() {
