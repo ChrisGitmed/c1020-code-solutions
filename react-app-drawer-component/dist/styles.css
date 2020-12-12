@@ -1,0 +1,25 @@
+#root {
+  display: flex;
+  height: 100vh;
+}
+
+.lnr {
+  display: inline-block;
+  fill: currentColor;
+  width: 3rem;
+  height: 3rem;
+  vertical-align: -0.05em;
+}
+
+.lnr-menu {
+  color: #0f52ba;
+  font-size: 40px;
+  padding: 0.5rem 0.8rem;
+}
+
+body {
+  margin: 0;
+  font-size: 40px;
+  font-family: sans-serif;
+  color: #555;
+}

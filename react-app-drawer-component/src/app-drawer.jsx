@@ -3,7 +3,7 @@ import React from 'react';
 class AppDrawer extends React.Component {
 
   render() {
-    return <h1>placeholder</h1>;
+    return <svg className="lnr lnr-menu"><use xlinkHref="#lnr-menu"></use></svg>;
   }
 }
 
