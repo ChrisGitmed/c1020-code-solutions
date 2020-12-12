@@ -31,11 +31,11 @@ class AppDrawer extends React.Component {
         <div className={menuClass}>
           <div className="column">
             <h1>Menu</h1>
-            <h4>About</h4>
-            <h4>Get Started</h4>
-            <h4>Sign In</h4>
+            <h4 onClick={this.handleClick}>About</h4>
+            <h4 onClick={this.handleClick}>Get Started</h4>
+            <h4 onClick={this.handleClick}>Sign In</h4>
           </div>
-          <div className="filler"></div>
+          <div className="filler" onClick={this.handleClick}></div>
         </div>
       </div>
     );
