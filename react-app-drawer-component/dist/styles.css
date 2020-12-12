@@ -1,7 +1,17 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  color: #555;
+  color: #222;
+}
+
+h4,
+svg {
+  cursor: pointer;
+}
+
+h4:hover,
+svg:hover {
+  color: goldenrod;
 }
 
 .container {
@@ -18,8 +28,6 @@ body {
 }
 
 .lnr-menu {
-  color: #0f52ba;
-  font-size: 40px;
   padding: 0.5rem 0.8rem;
 }
 
