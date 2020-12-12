@@ -4,7 +4,7 @@ body {
   color: #555;
 }
 
-#root {
+.container {
   display: flex;
   height: 100vh;
 }
@@ -23,12 +23,28 @@ body {
   padding: 0.5rem 0.8rem;
 }
 
+.menu-view {
+  display: flex;
+  width: 100%;
+  transition: 0.25s;
+}
+
 .column {
   height: 100%;
   width: 25%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 2rem 0 0 2rem;
+  padding: 1rem 0 0 2rem;
   border-right: 2px solid black;
+}
+
+.filler {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 75%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
 }

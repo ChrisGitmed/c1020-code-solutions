@@ -16,22 +16,30 @@ class AppDrawer extends React.Component {
   }
 
   render() {
-    if (this.state.isActive) {
-      return (
-        <div className="column">
-          <h1>Menu</h1>
-          <h4>About</h4>
-          <h4>Get Started</h4>
-          <h4>Sign In</h4>
-        </div>
-      );
-    } else {
-      return (
-        <svg className="lnr lnr-menu" onClick={this.handleClick}>
+    const isActive = this.state.isActive;
+    let svgClass = 'lnr lnr-menu';
+    let menuClass = 'menu-view hidden';
+    if (isActive) {
+      menuClass = 'menu-view';
+      svgClass = 'lnr lnr-menu hidden';
+    }
+    return (
+      <div className="container">
+        <svg className={svgClass} onClick={this.handleClick}>
           <use xlinkHref="#lnr-menu"></use>
         </svg>
-      );
-    }
+        <div className={menuClass}>
+          <div className="column">
+            <h1>Menu</h1>
+            <h4>About</h4>
+            <h4>Get Started</h4>
+            <h4>Sign In</h4>
+          </div>
+          <div className="filler"></div>
+        </div>
+      </div>
+    );
+
   }
 }
 
