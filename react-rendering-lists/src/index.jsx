@@ -10,17 +10,14 @@ const pokedex = [
 ];
 
 class Pokedex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.listItems = pokedex.map(pokemon =>
+
+  render() {
+    const listItems = pokedex.map(pokemon =>
       <li key={pokemon.number}>
         {pokemon.name}
       </li>
     );
-  }
-
-  render() {
-    return <ul>{this.listItems}</ul>;
+    return <ul>{listItems}</ul>;
   }
 }
 
