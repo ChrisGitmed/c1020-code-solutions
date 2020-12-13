@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ValidatedInput from './validated-input';
 
 ReactDOM.render(
-  <h1>placeholder</h1>,
+  <ValidatedInput/>,
   document.querySelector('#root')
 );
