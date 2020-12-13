@@ -3,7 +3,12 @@ import React from 'react';
 class ValidatedInput extends React.Component {
 
   render() {
-    return <h1>placeholder</h1>;
+    return (
+      <div className="input-container">
+        <label htmlFor="password" className="row">Password</label>
+        <input type="password" name="password"/>
+      </div>
+    );
   }
 }
 
