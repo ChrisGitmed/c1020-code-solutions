@@ -14,18 +14,21 @@ class ValidatedInput extends React.Component {
   render() {
     const password = this.state.password;
     let flag = false;
-    let icon;
+    let message, icon;
 
-    if (password.length < 8) {
+    if (password.length === 0) {
       flag = true;
-      // message = 'Your password is too short';
+      message = 'A password is required.';
+    } else if (password.length < 8) {
+      flag = true;
+      message = 'Your password is too short.';
     }
-
     if (flag) {
       icon = 'lnr lnr-cross-circle';
     } else {
       icon = 'lnr lnr-thumbs-up';
     }
+
     return (
       <div className="input-container">
         <label htmlFor="password" className="row">Password</label>
@@ -35,6 +38,7 @@ class ValidatedInput extends React.Component {
           value={this.state.password}
           onChange={this.handleChange}/>
         <span className={icon}></span>
+        <div className="row error">{message}</div>
       </div>
     );
   }
