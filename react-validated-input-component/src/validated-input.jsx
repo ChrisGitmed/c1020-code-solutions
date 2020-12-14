@@ -24,9 +24,9 @@ class ValidatedInput extends React.Component {
       message = 'Your password is too short.';
     }
     if (flag) {
-      icon = 'lnr lnr-cross-circle';
+      icon = 'lnr lnr-cross-circle padding-left';
     } else {
-      icon = 'lnr lnr-thumbs-up';
+      icon = 'lnr lnr-thumbs-up padding-left';
     }
 
     return (

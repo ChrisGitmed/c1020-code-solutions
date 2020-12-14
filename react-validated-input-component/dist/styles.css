@@ -23,11 +23,13 @@ span {
 
 .lnr-cross-circle {
   color: red;
-  padding-left: 0.4rem;
 }
 
 .lnr-thumbs-up {
   color: green;
+}
+
+.padding-left {
   padding-left: 0.4rem;
 }
 
