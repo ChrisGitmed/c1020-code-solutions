@@ -12,6 +12,20 @@ class ValidatedInput extends React.Component {
   }
 
   render() {
+    const password = this.state.password;
+    let flag = false;
+    let icon;
+
+    if (password.length < 8) {
+      flag = true;
+      // message = 'Your password is too short';
+    }
+
+    if (flag) {
+      icon = 'lnr lnr-cross-circle';
+    } else {
+      icon = 'lnr lnr-thumbs-up';
+    }
     return (
       <div className="input-container">
         <label htmlFor="password" className="row">Password</label>
@@ -20,7 +34,7 @@ class ValidatedInput extends React.Component {
           name="password"
           value={this.state.password}
           onChange={this.handleChange}/>
-        <span className="lnr lnr-cross-circle"></span>
+        <span className={icon}></span>
       </div>
     );
   }
