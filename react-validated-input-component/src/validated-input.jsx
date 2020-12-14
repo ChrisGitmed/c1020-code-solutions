@@ -23,14 +23,27 @@ class ValidatedInput extends React.Component {
       flag = true;
       message = 'Your password is too short.';
     }
+
     if (!flag) {
       flag = true;
       for (let i = 0; i < password.length; i++) {
         if (Number(password[i]) >= 0 && Number(password[i]) <= 9) {
           flag = false;
         }
+      }
+      if (flag) {
+        message = 'Your password must include a number.';
+      }
+
+      if (!flag) {
+        flag = true;
+        for (let x = 0; x < password.length; x++) {
+          if (password[x] === password[x].toUpperCase() && isNaN(password[x])) {
+            flag = false;
+          }
+        }
         if (flag) {
-          message = 'Your password must include a number.';
+          message = 'Your password must include a capital letter.';
         }
       }
     }
