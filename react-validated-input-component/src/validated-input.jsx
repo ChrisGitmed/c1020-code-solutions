@@ -37,14 +37,28 @@ class ValidatedInput extends React.Component {
 
       if (!flag) {
         flag = true;
-        for (let x = 0; x < password.length; x++) {
-          if (password[x] === password[x].toUpperCase() && isNaN(password[x])) {
+        for (let i = 0; i < password.length; i++) {
+          if (password[i] === password[i].toUpperCase() && isNaN(password[i])) {
             flag = false;
           }
         }
         if (flag) {
           message = 'Your password must include a capital letter.';
         }
+
+        /*
+        if (!flag) {
+          flag = true;
+          for (let i = 0; i < password.length; i++) {
+            if (password[i] === 'symbol') {
+              flag = false;
+            }
+          }
+          if (flag) {
+            message = 'Your password must include a symbol.';
+          }
+        }
+        */
       }
     }
 
