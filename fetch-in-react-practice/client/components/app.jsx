@@ -44,7 +44,7 @@ export default class App extends React.Component {
       },
       body: JSON.stringify({
         task: newTodo.task,
-        isCompleted: true
+        isCompleted: false
       })
     })
       .then(res => res.json())
@@ -72,6 +72,32 @@ export default class App extends React.Component {
      * TIP: Be sure to SERIALIZE the updates in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
+    const todos = this.state.todos;
+
+    for (let i = 0; i < todos.length; i++) {
+      if (todos[i].todoId === todoId) {
+        const flippedObj = {
+          isCompleted: !todos[i].isCompleted
+        };
+        fetch(`/api/todos/${todoId}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            isCompleted: flippedObj.isCompleted
+          })
+        })
+          .then(res => res.json())
+          .then(task => {
+            todos[i].isCompleted = flippedObj.isCompleted;
+            this.setState({
+              todos: todos
+            });
+          });
+      }
+    }
+
   }
 
   render() {
