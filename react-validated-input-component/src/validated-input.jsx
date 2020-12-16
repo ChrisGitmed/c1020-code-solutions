@@ -48,7 +48,15 @@ class ValidatedInput extends React.Component {
   }
 
   doesIncludeSymbol(password) {
-
+    let flag = false;
+    for (let i = 0; i < password.length; i++) {
+      if (password[i]) { /// / IS EQUAL TO A SYMBOL?)
+        flag = true;
+      }
+    }
+    if (flag) {
+      return true;
+    } else return false;
   }
 
   render() {
