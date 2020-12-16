@@ -36,7 +36,7 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(task => {
-        const newArray = this.state.todos;
+        const newArray = this.state.todos.slice();
         newArray.push(task);
         this.setState({
           todos: newArray
@@ -63,10 +63,11 @@ export default class App extends React.Component {
           })
         })
           .then(res => res.json())
-          .then(task => {
-            todos[i].isCompleted = flippedObj.isCompleted;
+          .then(todo => {
+            const todosCopy = this.state.todos.slice();
+            todosCopy[i] = todo;
             this.setState({
-              todos: todos
+              todos: todosCopy
             });
           });
       }
