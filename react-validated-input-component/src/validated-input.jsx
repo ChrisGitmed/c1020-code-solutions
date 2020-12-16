@@ -11,60 +11,67 @@ class ValidatedInput extends React.Component {
     this.setState({ password: event.target.value });
   }
 
+  isNot0(password) {
+    if (password.length !== 0) {
+      return true;
+    } else return false;
+  }
+
+  isLongerThan8(password) {
+    if (password.length > 8) {
+      return true;
+    } else return false;
+  }
+
+  doesIncludeANumber(password) {
+    let flag = false;
+    for (let i = 0; i < password.length; i++) {
+      if (Number(password[i]) >= 0 && Number(password[i]) <= 9) {
+        flag = true;
+      }
+    }
+    if (flag) {
+      return true;
+    } else return false;
+  }
+
+  doesIncludeACapitalLetter(password) {
+    let flag = false;
+    for (let i = 0; i < password.length; i++) {
+      if (password[i] === password[i].toUpperCase() && isNaN(password[i])) {
+        flag = true;
+      }
+    }
+    if (flag) {
+      return true;
+    } else return false;
+  }
+
+  doesIncludeSymbol(password) {
+
+  }
+
   render() {
     const password = this.state.password;
     let flag = false;
-    let message, icon;
+    let message;
+    let icon = 'lnr lnr-cross-circle padding-left';
 
-    if (password.length === 0) {
+    if (!this.isNot0(password)) {
       flag = true;
-      message = 'A password is required.';
-    } else if (password.length < 8) {
+      message = 'A password is required';
+    } else if (!this.isLongerThan8(password)) {
       flag = true;
       message = 'Your password is too short.';
+    } else if (!this.doesIncludeANumber(password)) {
+      flag = true;
+      message = 'Your password must include a number';
+    } else if (!this.doesIncludeACapitalLetter(password)) {
+      flag = true;
+      message = 'Your password must include a capital letter';
     }
 
     if (!flag) {
-      flag = true;
-      for (let i = 0; i < password.length; i++) {
-        if (Number(password[i]) >= 0 && Number(password[i]) <= 9) {
-          flag = false;
-        }
-      }
-      if (flag) {
-        message = 'Your password must include a number.';
-      }
-
-      if (!flag) {
-        flag = true;
-        for (let i = 0; i < password.length; i++) {
-          if (password[i] === password[i].toUpperCase() && isNaN(password[i])) {
-            flag = false;
-          }
-        }
-        if (flag) {
-          message = 'Your password must include a capital letter.';
-        }
-
-        /*
-        if (!flag) {
-          flag = true;
-          for (let i = 0; i < password.length; i++) {
-            if (password[i] === 'symbol') {
-              flag = false;
-            }
-          }
-          if (flag) {
-            message = 'Your password must include a symbol.';
-          }
-        }
-        */
-      }
-    }
-
-    if (flag) {
-      icon = 'lnr lnr-cross-circle padding-left';
-    } else {
       icon = 'lnr lnr-thumbs-up padding-left';
       message = '';
     }
