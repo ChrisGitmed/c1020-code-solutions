@@ -47,16 +47,10 @@ class ValidatedInput extends React.Component {
     } else return false;
   }
 
-  doesIncludeSymbol(password) {
-    let flag = false;
-    for (let i = 0; i < password.length; i++) {
-      if (password[i]) { // MUST CHANGE; Time to learn some RegEx
-        flag = true;
-      }
-    }
-    if (flag) {
-      return true;
-    } else return false;
+  doesIncludeASymbol(password) {
+    const regex = /[\W]/;
+    const hasASymbol = regex.test(password);
+    return hasASymbol;
   }
 
   render() {
@@ -77,6 +71,9 @@ class ValidatedInput extends React.Component {
     } else if (!this.doesIncludeACapitalLetter(password)) {
       flag = true;
       message = 'Your password must include a capital letter';
+    } else if (!this.doesIncludeASymbol(password)) {
+      flag = true;
+      message = 'Your password must include a special character';
     }
 
     if (!flag) {
