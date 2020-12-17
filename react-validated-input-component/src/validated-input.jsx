@@ -24,15 +24,9 @@ class ValidatedInput extends React.Component {
   }
 
   doesIncludeANumber(password) {
-    let flag = false;
-    for (let i = 0; i < password.length; i++) {
-      if (Number(password[i]) >= 0 && Number(password[i]) <= 9) {
-        flag = true;
-      }
-    }
-    if (flag) {
-      return true;
-    } else return false;
+    const regex = /\d/;
+    const hasANumber = regex.test(password);
+    return hasANumber;
   }
 
   doesIncludeACapitalLetter(password) {
