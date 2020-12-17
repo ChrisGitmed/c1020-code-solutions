@@ -36,15 +36,9 @@ class ValidatedInput extends React.Component {
   }
 
   doesIncludeACapitalLetter(password) {
-    let flag = false;
-    for (let i = 0; i < password.length; i++) {
-      if (password[i] === password[i].toUpperCase() && isNaN(password[i])) {
-        flag = true;
-      }
-    }
-    if (flag) {
-      return true;
-    } else return false;
+    const regex = /[A-Z]+/;
+    const hasACapital = regex.test(password);
+    return hasACapital;
   }
 
   doesIncludeASymbol(password) {
