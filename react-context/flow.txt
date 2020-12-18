@@ -1,18 +1,18 @@
 1. User can sign up
 
 When the user enters their info and clicks the register button,
-An event listener on the button (handleSubmit) sends a POST
-Request to the server.
+an event listener on the button (handleSubmit) sends a POST
+request to the server.
 
 The server then checks to make sure there is a valid username
-And password included in the body of the request. If so, it
+and password included in the body of the request. If so, it
 hashes the password using argon2.
 
 The database is then queried to insert a new user using the
 hashed password and username.
 
-If all this succeeds, the handleSubmit method completes by changing the window
-Location hash to ‘sign-in’ and swapping the view.
+If all this succeeds, the handleSubmit method completes by changing the
+window location hash to ‘sign-in’ and swapping the view.
 
 
 
@@ -28,11 +28,11 @@ of the user with the entered username.
 
 If a matching username is found, the verify method of argon2 checks
 the entered password against the hashed password. If the passwords
-Match, a JSON web token is given to the user, containing their userId,
-Username, and a secret token used by the server to identify them.
+match, a JSON web token is given to the user, containing their userId,
+username, and a secret token used by the server to identify them.
 
-If all this succeeds, the resulting object containing the token and payload
-Are passed back to the client as a prop.
+If all this succeeds, the resulting object containing the token and
+payload are passed back to the client as a prop.
 
 Then the render method is called to change and changes the view to the
 home page.
