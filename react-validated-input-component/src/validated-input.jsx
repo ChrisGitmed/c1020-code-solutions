@@ -45,7 +45,7 @@ class ValidatedInput extends React.Component {
     const password = this.state.password;
     let flag = false;
     let message;
-    let icon = 'lnr lnr-cross-circle padding-left';
+    let icon = 'lnr lnr-cross-circle red-icon';
 
     if (!this.isNot0(password)) {
       flag = true;
@@ -65,7 +65,7 @@ class ValidatedInput extends React.Component {
     }
 
     if (!flag) {
-      icon = 'lnr lnr-thumbs-up padding-left';
+      icon = 'lnr lnr-thumbs-up green-icon';
       message = '';
     }
 

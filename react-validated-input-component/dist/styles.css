@@ -21,16 +21,14 @@ span {
   width: 100%;
 }
 
-.lnr-cross-circle {
+.red-icon {
+  padding-left: 0.4rem;
   color: red;
 }
 
-.lnr-thumbs-up {
-  color: green;
-}
-
-.padding-left {
+.green-icon {
   padding-left: 0.4rem;
+  color: green;
 }
 
 .error {
