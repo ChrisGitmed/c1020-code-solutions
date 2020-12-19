@@ -24,7 +24,7 @@ export default class App extends React.Component {
     })
       .then(res => {
         console.log('res.body: ', res.body);
-        document.querySelector('form').reset();
+        event.target.reset();
       })
       .catch(err => {
         if (err) throw err;

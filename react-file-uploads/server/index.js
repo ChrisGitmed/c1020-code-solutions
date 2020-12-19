@@ -49,7 +49,7 @@ app.get('/api/images', (req, res, next) => {
   `;
   db.query(sql)
     .then(result => {
-      res.json(result.rows);
+      res.status(201).json(result.rows);
     })
     .catch(err => next(err));
 });
