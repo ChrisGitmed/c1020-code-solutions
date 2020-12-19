@@ -37,7 +37,7 @@ app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
   const params = [caption, url];
   db.query(sql, params)
     .then(result => {
-      res.json(result.rows[0]);
+      res.status(201).json(result.rows[0]);
     })
     .catch(err => next(err));
 });
@@ -49,7 +49,7 @@ app.get('/api/images', (req, res, next) => {
   `;
   db.query(sql)
     .then(result => {
-      res.status(201).json(result.rows);
+      res.json(result.rows);
     })
     .catch(err => next(err));
 });
