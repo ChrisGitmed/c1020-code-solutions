@@ -38,11 +38,14 @@ Then the render method is called to change and changes the view to the
 home page.
 
 
-User can stay signed in
+3. User can stay signed in
 
-After signing in once, a token produced by the server and identifying the client,
-is saved to local storage, and the username is saved to state. When the page
-loads (mounts), if the correct token is found in local storage, the user will be
-authorized and the user's home page is rendered.
-This will persist until they click the sign out button, which will remove the
-token from storage and force the user to sign in again if they want another one.
+After signing in once, a token produced by the server to uniquely identify the
+client is saved to local storage, and the username is saved to state. When the
+page loads (mounts), if a token is found in local storage, the user will be
+authorized, and the user's home page is rendered instead of the sign-in/sign-out
+page.
+
+This will persist until the user click the sign out button, which will remove
+the token from storage and force the user to sign in again (reauthorize) if
+they want another one.
