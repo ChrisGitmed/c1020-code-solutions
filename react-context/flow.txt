@@ -40,7 +40,9 @@ home page.
 
 User can stay signed in
 
-After a client signs in once, and as long as they don’t sign out,
-the token they recieve from the first sign-in will be added to the
-request headers when they visit the page. This causes the home view
-to render instead of the login or signup view.
+After signing in once, a token produced by the server and identifying the client,
+is saved to local storage, and the username is saved to state. When the page
+loads (mounts), if the correct token is found in local storage, the user will be
+authorized and the user's home page is rendered.
+This will persist until they click the sign out button, which will remove the
+token from storage and force the user to sign in again if they want another one.
