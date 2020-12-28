@@ -1,0 +1,51 @@
+1. User can sign up
+
+When the user enters their info and clicks the register button,
+an event listener on the button (handleSubmit) sends a POST
+request to the server.
+
+The server then checks to make sure there is a valid username
+and password included in the body of the request. If so, it
+hashes the password using argon2.
+
+The database is then queried to insert a new user using the
+hashed password and username.
+
+If all this succeeds, the handleSubmit method completes by changing the
+window location hash to ‘sign-in’ and swapping the view.
+
+
+
+2. User can sign in
+
+When the user enters their info and clicks sign in, An event listener on
+the button (handleSubmit) sends a POST request to the server.
+The server then checks to make sure that both a username and
+Password were entered.
+
+If so, the database is queried for the userId and hashedPassword
+of the user with the entered username.
+
+If a matching username is found, the verify method of argon2 checks
+the entered password against the hashed password. If the passwords
+match, a JSON web token is given to the user, containing their userId,
+username, and a secret token used by the server to identify them.
+
+If all this succeeds, the resulting object containing the token and
+payload are passed back to the client as a prop.
+
+Then the render method is called to change and changes the view to the
+home page.
+
+
+3. User can stay signed in
+
+After signing in once, a token produced by the server to uniquely identify the
+client is saved to local storage, and the username is saved to state. When the
+page loads (mounts), if a token is found in local storage, the user will be
+authorized, and the user's home page is rendered instead of the sign-in/sign-out
+page.
+
+This will persist until the user click the sign out button, which will remove
+the token from storage and force the user to sign in again (reauthorize) if
+they want another one.
